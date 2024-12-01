@@ -79,3 +79,40 @@ def edit_attendance():
         print(f"Student {student_name} nie istnieje w bazie danych.")
 
     export_attendance(students)
+
+
+# Menu 
+def menu():
+    while True:
+        print("\nMENU:")
+        print("1. Importuj studentów")
+        print("2. Eksportuj obecności")
+        print("3. Dodaj studenta")
+        print("4. Edytuj dane studenta")
+        print("5. Edytuj obecność studenta")
+        print("6. Zakończ")
+
+        choice = input("Wybierz opcję: ")
+
+        if choice == "1":
+            students = import_from_file()
+            print("Zaimportowani studenci:", students)
+        elif choice == "2":
+            students = import_from_file()
+            export_attendance(students)
+            print("Obecności zostały wyeksportowane.")
+        elif choice == "3":
+            add_student()
+        elif choice == "4":
+            edit_student()
+        elif choice == "5":
+            edit_attendance()
+        elif choice == "6":
+            print("Koniec programu.")
+            break
+        else:
+            print("Nieprawidłowy wybór. Spróbuj ponownie.")
+
+
+if __name__ == "__main__":
+    menu()
