@@ -60,3 +60,22 @@ def edit_student():
     export_attendance(students)
     print(f"Zaktualizowano dane studenta: {new_first_name} {new_last_name}.")
 
+
+# Editing attendance 
+def edit_attendance():
+    student_name = input("Podaj imię i nazwisko studenta (np. Jan Kowalski): ")
+    students = import_from_file()
+    found = False  # whether the student was found
+
+    for student in students:
+        if f"{student['first_name']} {student['last_name']}" == student_name:
+            found = True
+            status = input(f"Obecność dla {student_name} (tak/nie): ").strip().lower()
+            student['present'] = (status == 'tak')
+            print(f"Obecność dla {student_name} została zaktualizowana.")
+            break
+
+    if not found:
+        print(f"Student {student_name} nie istnieje w bazie danych.")
+
+    export_attendance(students)
