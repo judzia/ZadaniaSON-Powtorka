@@ -38,9 +38,12 @@ def export_attendance(students):
 def add_student():
     first_name = input("Podaj imię studenta: ")
     last_name = input("Podaj nazwisko studenta: ")
+
+    if not first_name or not last_name:
+        raise ValueError("Imię i nazwisko są wymagane!")
+    
     with open('students.csv', 'a', newline='') as file:
-        writer = csv.writer(file) # creating object writer
-        writer.writerow([first_name, last_name, 'no'])  # saving info about new student
+        file.write(f"{first_name},{last_name},no\n")
     print(f"Student {first_name} {last_name} został dodany.")
 
 
