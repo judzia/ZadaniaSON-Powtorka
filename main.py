@@ -34,3 +34,11 @@ def export_attendance(students):
             present = 'yes' if student['present'] else 'no'
             file.write(f"{student['first_name']},{student['last_name']},{present}\n")
         
+# Dodawanie nowego studenta
+def add_student():
+    first_name = input("Podaj imię studenta: ")
+    last_name = input("Podaj nazwisko studenta: ")
+    with open('students.csv', 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([first_name, last_name, 'no'])
+    print(f"Student {first_name} {last_name} został dodany.")
