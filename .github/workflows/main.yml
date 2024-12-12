@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: windows_latest
+    runs-on: ubuntu_latest
 
     steps:
     # 1.chechout repo
