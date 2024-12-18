@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, mock_open
-from main import *  #  importing functions
+from main import add_student  #  importing functions
 
 
 class TestAddStudent(unittest.TestCase):
