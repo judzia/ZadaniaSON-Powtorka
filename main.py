@@ -119,3 +119,4 @@ def menu():
 
 if __name__ == "__main__":
     menu()
+# TODO: Testing how todo works hehhehe
